@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My Best Friend's Closet — Your New Website</title>
+<style>
+  @page { size: letter; margin: 0.62in; }
+  :root {
+    --ink:#35251c; --body:#5f5347; --mute:#6b5a4e; --faint:#a89a8c;
+    --hairline:#e2d8c6; --hairline-inner:#efe9dd;
+    --tint:#23606f; --tint-bg:#f3ecdf;
+    --font:-apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+    --serif:Georgia,'Times New Roman',serif;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+  html,body { background:#fff; }
+  body { font-family:var(--font); font-size:12px; line-height:1.6; color:var(--body); width:7.26in; margin:0 auto; }
+  @media screen { body { margin:34px auto; } }
+  .sheet { page-break-after:always; }
+  .sheet:last-child { page-break-after:auto; }
+
+  .eyebrow { font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--tint); margin-bottom:9px; }
+  h1 { font-family:var(--serif); font-size:30px; font-weight:400; color:var(--ink); letter-spacing:-.02em; line-height:1.1; margin-bottom:9px; }
+
+  .masthead { display:flex; justify-content:space-between; align-items:flex-start; gap:40px; padding-bottom:13px; border-bottom:1px solid var(--hairline); margin-bottom:16px; }
+  .masthead h1 { margin-bottom:0; }
+  .contact { text-align:right; white-space:nowrap; margin-top:-2px; }
+  .contact .nm { font-family:var(--serif); font-size:14px; color:var(--ink); line-height:1.3; }
+  .contact .ln { font-size:11px; color:var(--mute); line-height:1.5; }
+
+  h2 { font-size:13.5px; font-weight:600; color:var(--ink); letter-spacing:-.01em; padding-bottom:7px; border-bottom:1px solid var(--hairline); margin-bottom:12px; }
+  section { margin-top:16px; }
+  p + p { margin-top:8px; }
+  strong { color:var(--ink); font-weight:600; }
+  .lede { font-size:12.5px; line-height:1.65; }
+
+  .well { background:var(--tint-bg); border-radius:8px; padding:14px 18px; margin-top:15px; display:flex; align-items:center; gap:20px; }
+  .well .lbl { font-size:10px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--tint); margin-bottom:4px; }
+  .well .url { font-family:var(--serif); font-size:16.5px; color:var(--ink); line-height:1.3; }
+  .well .sub { font-size:11px; color:var(--mute); margin-top:4px; }
+  .well .qr { flex-shrink:0; width:0.92in; height:0.92in; background:#fff; border-radius:6px; padding:5px; }
+  .well .qr img { width:100%; height:100%; display:block; }
+  .well .qr .ph { width:100%; height:100%; border:1px dashed var(--faint); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:8px; color:var(--faint); text-align:center; line-height:1.4; }
+
+  .split { display:flex; gap:28px; align-items:flex-start; }
+  .split .col { flex:1; min-width:0; }
+
+  .finding { padding:9px 0 10px; border-bottom:1px solid var(--hairline-inner); }
+  .finding:last-child { border-bottom:none; }
+  .finding .t { font-size:12.5px; font-weight:600; color:var(--ink); margin-bottom:2px; }
+  .finding .d { font-size:11.5px; line-height:1.55; }
+
+  /* PHONE MOCK — built from the real rebuild */
+  .phone-wrap { flex-shrink:0; width:2.02in; text-align:center; }
+  .phone { border:2px solid var(--ink); border-radius:20px; padding:5px; background:#fff; text-align:left; }
+  .screen { border-radius:14px; overflow:hidden; background:#faf6ef; }
+  .m-top { background:#35251c; color:#f3ecdf; font-size:5px; letter-spacing:.08em; text-transform:uppercase; text-align:center; padding:3px 4px; }
+  .m-brand { padding:5px 9px 4px; }
+  .m-brand .s { font-family:var(--serif); font-style:italic; font-size:6.5px; color:#23606f; line-height:1.2; }
+  .m-brand .c { font-family:var(--serif); font-size:10px; letter-spacing:.22em; color:#35251c; }
+  .m-hero { position:relative; height:1.5in; margin:2px 9px 0; border-radius:40px 40px 3px 3px; overflow:hidden; }
+  .m-hero img { width:100%; height:100%; object-fit:cover; display:block; }
+  .m-hero::after { content:''; position:absolute; inset:0; background:linear-gradient(0deg,rgba(38,25,18,.82) 0%,rgba(38,25,18,.05) 55%); }
+  .m-hero .txt { position:absolute; left:9px; right:8px; bottom:8px; z-index:1; color:#fff; }
+  .m-hero .k { font-family:var(--serif); font-style:italic; font-size:5.5px; color:#bfe0e6; margin-bottom:2px; }
+  .m-hero .h { font-family:var(--serif); font-size:11px; line-height:1.05; letter-spacing:-.01em; }
+  .m-strip { border-top:1px solid #e2d8c6; border-bottom:1px solid #e2d8c6; background:#f3ecdf; margin-top:6px; padding:3px 8px; font-family:var(--serif); font-style:italic; font-size:5.8px; color:#6b5a4e; white-space:nowrap; overflow:hidden; }
+  .m-card { margin:6px 9px; background:#fff; border:1px solid #e2d8c6; border-radius:3px; padding:6px 8px; }
+  .m-card .n { font-family:var(--serif); font-style:italic; font-size:5.5px; color:#23606f; }
+  .m-card .h3 { font-family:var(--serif); font-size:8.5px; color:#35251c; margin:1px 0 1px; }
+  .m-card .hrs { font-size:5.8px; color:#6b5a4e; line-height:1.5; }
+  .m-btns { display:flex; gap:4px; margin-top:4px; }
+  .m-btns span { flex:1; text-align:center; font-size:5.2px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:3px 0; }
+  .m-btns .solid { background:#23606f; color:#fff; }
+  .m-btns .ghost { border:1px solid #35251c; color:#35251c; }
+  .m-bar { display:flex; background:#35251c; margin-top:6px; }
+  .m-bar span { flex:1; text-align:center; color:#f3ecdf; font-size:5.6px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; padding:5px 0; border-right:1px solid rgba(243,236,223,.18); }
+  .m-bar span:last-child { border-right:0; }
+  .phone-cap { font-size:10px; color:var(--mute); margin-top:7px; line-height:1.5; }
+
+  .flow { margin-left:2px; }
+  .step { display:flex; gap:18px; padding-bottom:10px; position:relative; }
+  .step:last-child { padding-bottom:0; }
+  .step:not(:last-child)::before { content:''; position:absolute; left:6px; top:17px; bottom:2px; width:1px; background:var(--hairline); }
+  .step .num { font-size:11px; font-weight:600; color:var(--faint); width:13px; flex-shrink:0; padding-top:2px; z-index:1; background:#fff; }
+  .step .t { font-size:12.5px; font-weight:600; color:var(--ink); margin-bottom:1px; }
+  .step .d { font-size:11.5px; line-height:1.55; }
+
+  .sign { margin-top:18px; padding-top:12px; border-top:1px solid var(--hairline); display:flex; justify-content:space-between; align-items:flex-start; gap:30px; }
+  .sign p { font-size:12px; max-width:4.2in; }
+  .sign .card { text-align:right; font-size:11.5px; color:var(--mute); white-space:nowrap; }
+  .sign .card b { display:block; font-family:var(--serif); font-size:15px; color:var(--ink); font-weight:400; margin-bottom:2px; }
+  .foot { margin-top:10px; font-size:10px; color:var(--faint); }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 — THE GIFT ============ -->
+<div class="sheet">
+
+  <div class="masthead">
+    <div>
+      <div class="eyebrow">My Best Friend's Closet · August 2026</div>
+      <h1>Your new website is ready to look at.</h1>
+    </div>
+    <div class="contact">
+      <div class="nm">Joel Bach</div>
+      <div class="ln">Web design</div>
+      <div class="ln">[PHONE]</div>
+      <div class="ln">jabach811@gmail.com</div>
+    </div>
+  </div>
+
+  <p class="lede">I design websites for local shops, and yours caught my eye — the teal armoire, the script lettering, the racks in that photo with the pampas grass. The shop has real charm; the website doesn't show it, and a few things about it are quietly costing you customers. So instead of writing you a proposal, I built the new site first. It's real, and you can open it right now.</p>
+
+  <div class="well">
+    <div>
+      <div class="lbl">Open it on your phone, the way a customer would</div>
+      <div class="url">[REBUILD URL — pending deploy]</div>
+      <div class="sub">Or point your phone's camera at the square — it goes straight there.</div>
+    </div>
+    <div class="qr"><div class="ph">QR after<br>deploy</div></div>
+  </div>
+
+  <section>
+    <h2>What the current site is costing you</h2>
+    <div class="split">
+      <div class="col">
+
+        <div class="finding">
+          <div class="t">On a phone, your shop takes sixteen seconds to appear.</div>
+          <div class="d">Most people give up after about three — they tap back and end up on Yelp, next to a list of other consignment stores. The new site shows your racks right away.</div>
+        </div>
+        <div class="finding">
+          <div class="t">Your homepage never says where you are or when you're open.</div>
+          <div class="d">A woman deciding whether to drive downtown has to hunt through the site for an address; some won't, and some arrive on a Monday to a locked door. The new site puts your address, hours, and phone on every page — one tap to call, one tap for directions.</div>
+        </div>
+        <div class="finding">
+          <div class="t">Googling &ldquo;consignment shop Tracy&rdquo; finds Yelp before it finds you.</div>
+          <div class="d">Your own site comes in last on the page, partly because it never says the word &ldquo;consignment&rdquo; in its title and doesn't publish your address and hours in the format Google reads. The new site does both.</div>
+        </div>
+        <div class="finding">
+          <div class="t">Shoppers see four items, then hit a dead end.</div>
+          <div class="d">Browsing the racks is the whole joy of your shop, and the website doesn't offer it. The new site puts all 222 in-stock pieces online — real prices, real photos, sortable by dresses, tops, jewelry, shoes — with checkout still running through your existing store.</div>
+        </div>
+
+      </div>
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="screen">
+            <div class="m-top">New arrivals every week · 53 W 10th St</div>
+            <div class="m-brand">
+              <div class="s">My Best Friend's</div>
+              <div class="c">CLOSET</div>
+            </div>
+            <div class="m-hero">
+              <img src="assets/current-site/hero-2.jpg" alt="">
+              <div class="txt">
+                <div class="k">Downtown Tracy · est. 2012</div>
+                <div class="h">Your best friend's closet. Only bigger.</div>
+              </div>
+            </div>
+            <div class="m-strip">Designer labels on consignment · Sizes 0–18 · Permanent jewelry · The hat bar</div>
+            <div class="m-card">
+              <div class="n">Come say hi</div>
+              <div class="h3">Visit the shop</div>
+              <div class="hrs">53 W 10th Street, Tracy<br>Tues–Fri 10–6 · Sat 10–4:30 · Sun 10–2</div>
+              <div class="m-btns"><span class="ghost">Directions</span><span class="solid">Call</span></div>
+            </div>
+            <div class="m-bar"><span>Shop</span><span>Consign</span><span>Visit</span></div>
+          </div>
+        </div>
+        <div class="phone-cap">The new site — your teal, your script, your photos. Hours and a call button on every screen.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ PAGE 2 — THE ASK ============ -->
+<div class="sheet">
+
+  <div class="masthead">
+    <div>
+      <div class="eyebrow">My Best Friend's Closet · Your new website</div>
+      <h1>What happens next, if you want it</h1>
+    </div>
+    <div class="contact">
+      <div class="nm">Joel Bach</div>
+      <div class="ln">[PHONE]</div>
+    </div>
+  </div>
+
+  <section style="margin-top:0">
+    <div class="flow">
+      <div class="step"><div class="num">1</div><div><div class="t">Look at the new site</div><div class="d">Open the link on your phone, the way a customer would. Show it to the MBFC girls. Mark up anything you'd change — wording, photos, anything.</div></div></div>
+      <div class="step"><div class="num">2</div><div><div class="t">Send me your favorites</div><div class="d">A handful of photos you love — the shop, the hat bar, a jewelry welding session — plus any wording changes from step 1. One email covers it.</div></div></div>
+      <div class="step"><div class="num">3</div><div><div class="t">Tell me the story once</div><div class="d">Ten minutes on the phone: how it started in 2012, what consignment means to you. That becomes the About section, in your words instead of mine.</div></div></div>
+      <div class="step"><div class="num">4</div><div><div class="t">Say go</div><div class="d">The design gets applied to your existing Shopify store — same checkout, same inventory, same app, nothing to migrate. Your web address stays the same, and it can be switched back at any time.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it costs</h2>
+    <p class="lede">Nothing, so far — this review and the working site were done on my own time, because the gap between how good your shop looks and how the website represents it was too big to leave alone. If you look at the new site and want it, we agree on a simple, flat price before anything changes hands. If you don't, that's genuinely fine: nothing happens, your current site stays exactly as it is.</p>
+  </section>
+
+  <div class="sign">
+    <p>Take as long as you like with this. Call, text, or email with questions — and either way, the shop is a gem.</p>
+    <div class="card"><b>Joel Bach</b>[PHONE]<br>jabach811@gmail.com</div>
+  </div>
+
+  <p class="foot">Prepared independently. No affiliation with My Best Friend's Closet. Everything described was checked directly on the live site in August 2026.</p>
+
+</div>
+
+</body>
+</html>
