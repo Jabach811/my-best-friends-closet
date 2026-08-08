@@ -3,7 +3,19 @@ import { resolve } from "node:path";
 
 const root = process.cwd();
 const publicDirectory = resolve(root, "public");
-const sourceFiles = ["index.html", "shop.html", "pitch.html", "styles.css"];
+const sourceFiles = [
+  "index.html",
+  "shop.html",
+  "consign.html",
+  "jewelry.html",
+  "hats.html",
+  "pitch.html",
+  "404.html",
+  "styles.css",
+  "site.js",
+  "shop.js",
+  "qr-rebuild.svg",
+];
 
 await rm(publicDirectory, { recursive: true, force: true });
 await mkdir(publicDirectory, { recursive: true });
