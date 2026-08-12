@@ -4,8 +4,7 @@ import { resolve } from "node:path";
 const root = process.cwd();
 const publicDirectory = resolve(root, "public");
 const stagedFiles = [
-  { source: "index-v2.html", destination: "index.html" },
-  { source: "index-v2.html", destination: "index-v2.html" },
+  { source: "index.html", destination: "index.html" },
   { source: "shop.html", destination: "shop.html" },
   { source: "consign.html", destination: "consign.html" },
   { source: "jewelry.html", destination: "jewelry.html" },
