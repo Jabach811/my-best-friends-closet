@@ -18,6 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/current-site/hero-2.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
@@ -53,7 +54,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="topbar">
-    <p>New arrivals every week &nbsp;·&nbsp; 53 W 10th St, Downtown Tracy &nbsp;·&nbsp; <a href="tel:+12098336232">(209) 833-6232</a></p>
+    <p>New arrivals every week <span class="topbar-loc">&nbsp;·&nbsp; 53 W 10th St, Downtown Tracy</span> &nbsp;·&nbsp; <a href="tel:+12098336232">(209) 833-6232</a></p>
   </div>
 
   <header class="site-header">
@@ -82,11 +83,9 @@
           <a class="btn" href="shop.html">Shop New Arrivals</a>
           <a class="btn btn-ghost" href="consign.html">Consign With Us</a>
         </div>
-        <p class="hero-note">Open Tues–Sun · 53 W 10th Street</p>
       </div>
       <figure class="hero-media">
         <img src="assets/current-site/hero-2.webp" alt="Inside the boutique: racks of dresses beneath a pampas-grass wreath and the MBFC neon sign" width="860" height="1146" fetchpriority="high">
-        <figcaption>The shop, W 10th Street</figcaption>
       </figure>
     </section>
 
@@ -150,10 +149,10 @@
         <div class="consign-intro">
           <p class="eyebrow eyebrow-light"><em>Closet feeling full?</em></p>
           <h2>Consignment, made&nbsp;easy</h2>
-          <p>Bring us the pieces you loved once — we'll find them their next best friend. You earn 40% of every sale, paid monthly. No spreadsheets, no shipping labels, no strangers at your door.</p>
+          <p>Bring us the pieces you loved once — we'll find them their next best friend. You earn 40% of every sale, paid monthly. No spreadsheets, no shipping labels, no strangers at your door. Call <a href="tel:+12098336232">(209) 833-6232</a> and we'll set a time.</p>
           <div class="hero-actions">
-            <a class="btn btn-cream" href="tel:+12098336232">Book an Appointment · (209) 833-6232</a>
-            <a class="btn btn-cream" href="consign.html">How It Works</a>
+            <a class="btn btn-cream" href="tel:+12098336232">Book an Appointment</a>
+            <a class="text-link text-link-light" href="consign.html">How it works →</a>
           </div>
         </div>
         <ol class="steps">
@@ -198,7 +197,7 @@
         <a class="exp-card" href="#visit">
           <h3>Little Ones</h3>
           <p>Sweet new styles for the smallest best friends — newborn through size 8. In the shop only, right next to the fitting rooms.</p>
-          <span class="text-link">Find it in the shop →</span>
+          <span class="text-link">Come see it in person →</span>
         </a>
       </div>
     </section>
@@ -207,7 +206,6 @@
     <section class="quote">
       <blockquote>
         <p>A place where local women can shop beautiful labels <em>and</em> feel good about every purchase.</p>
-        <cite>Downtown Tracy since 2012</cite>
       </blockquote>
     </section>
 
@@ -235,6 +233,27 @@
         </dl>
         <a class="btn" href="https://maps.google.com/?q=My%20Best%20Friend%27s%20Closet%2C%2053%20W%2010th%20St%2C%20Tracy%2C%20CA%2095376" target="_blank" rel="noopener">Get Directions</a>
       </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section class="ig" id="instagram" aria-labelledby="ig-title">
+
+      <div class="ig-head">
+        <h2 id="ig-title">Straight from the floor <span>@mbfctracy</span></h2>
+        <p class="ig-meta">11K following along on <a href="https://www.instagram.com/mbfctracy/" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+
+      <p class="ig-live">
+        <strong>Live sales every week</strong> — Wednesday 4pm · Thursday 6pm · Saturday 9am.
+        <em>Watch on Instagram, or come see it in person the next day.</em>
+      </p>
+
+      <ul class="ig-grid" id="ig-grid"></ul>
+
+      <p class="ig-foot">
+        <a class="btn" href="https://www.instagram.com/mbfctracy/" target="_blank" rel="noopener">Follow @mbfctracy</a>
+      </p>
+
     </section>
 
   </main>
@@ -265,6 +284,30 @@
     <p class="footer-legal">© 2026 My Best Friend's Closet · Tracy, California</p>
   </footer>
 
+  <script>
+  /* The nine most recent posts from @mbfctracy, captured by hand.
+     Replace this list with a feed service to make it update itself. */
+  const POSTS = [
+    { img: "assets/instagram/01.jpg", caption: "Celebrating out front",                href: "https://www.instagram.com/mbfctracy/p/DWNBgwWkrej/" },
+    { img: "assets/instagram/02.jpg", caption: "Arm-wrestling over a brand-new dress", href: "https://www.instagram.com/mbfctracy/reel/DaVrW5aMq2y/" },
+    { img: "assets/instagram/03.jpg", caption: "Come to work with Shawna",             href: "https://www.instagram.com/mbfctracy/reel/DaEYtzrP8NC/" },
+    { img: "assets/instagram/04.jpg", caption: "Asking Liz rapid-fire questions",      href: "https://www.instagram.com/mbfctracy/reel/Db6oXgABDra/" },
+    { img: "assets/instagram/05.jpg", caption: "Louis Vuitton OnTheGo GM tote",        href: "https://www.instagram.com/mbfctracy/reel/Db6ZoGXB56Q/" },
+    { img: "assets/instagram/06.jpg", caption: "Colby monk dress, back in stock",      href: "https://www.instagram.com/mbfctracy/reel/Db1jPxKBzPL/" },
+    { img: "assets/instagram/07.jpg", caption: "Unboxing fall",                        href: "https://www.instagram.com/mbfctracy/reel/Dby84o3hpv8/" },
+    { img: "assets/instagram/08.jpg", caption: "New handbags on the shelf",            href: "https://www.instagram.com/mbfctracy/p/DbtrPl6koM3/" },
+    { img: "assets/instagram/09.jpg", caption: "Huge vintage Coach drop",              href: "https://www.instagram.com/mbfctracy/reel/DboyNZePyvF/" },
+  ];
+
+  document.getElementById("ig-grid").innerHTML = POSTS.map(p => `
+    <li>
+      <a href="${p.href}" target="_blank" rel="noopener" aria-label="${p.caption} — view on Instagram">
+        <img src="${p.img}" alt="" loading="lazy" decoding="async"
+             onerror="this.closest('a').classList.add('is-empty'); this.remove();">
+        <span class="ig-cap">${p.caption}</span>
+      </a>
+    </li>`).join("");
+  </script>
   <script src="site.js"></script>
 </body>
 </html>
