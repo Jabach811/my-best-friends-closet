@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "node scripts/stage-static-files.mjs && vinext dev",
-    "build": "node scripts/stage-static-files.mjs && vinext build"
+    "build": "node scripts/stage-static-files.mjs && vinext build",
+    "refresh": "node scripts/refresh-products.mjs"
   },
   "dependencies": {
     "next": "16.2.6",

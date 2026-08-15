@@ -11,9 +11,13 @@ const stagedFiles = [
   { source: "hats.html", destination: "hats.html" },
   { source: "pitch.html", destination: "pitch.html" },
   { source: "404.html", destination: "404.html" },
+  { source: "product.html", destination: "product.html" },
   { source: "styles.css", destination: "styles.css" },
   { source: "site.js", destination: "site.js" },
   { source: "shop.js", destination: "shop.js" },
+  { source: "product.js", destination: "product.js" },
+  { source: "products.json", destination: "products.json" },
+  { source: "products-data.js", destination: "products-data.js" },
   { source: "qr-rebuild.svg", destination: "qr-rebuild.svg" },
 ];
 
