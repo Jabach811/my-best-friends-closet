@@ -1,4 +1,5 @@
-(() => {
+import {currentProduct,addToBag} from './commerce.js';
+(async () => {
   const pdp = document.getElementById('pdp');
   const handle = new URLSearchParams(location.search).get('p');
 
@@ -34,10 +35,11 @@
   };
 
   const gallery = (p) => {
-    const shots = p.images.slice(0, 5);
+    const shots = p.images;
+    if(!shots.length)return '<div class="pdp-gallery"><p class="image-unavailable">Photo unavailable</p></div>';
     const thumbs = shots.length > 1
       ? `<ul class="pdp-thumbs">${shots.map((src, i) =>
-          `<li><button type="button" class="pdp-thumb${i ? '' : ' is-active'}" data-src="${esc(sized(src, 960))}" aria-label="View photo ${i + 1}"><img src="${esc(sized(src, 200))}" alt="" loading="lazy"></button></li>`
+          `<li><button type="button" class="pdp-thumb${i ? '' : ' is-active'}" aria-pressed="${i===0}" data-src="${esc(sized(src, 960))}" aria-label="View photo ${i + 1}"><img src="${esc(sized(src, 200))}" alt="" loading="lazy"></button></li>`
         ).join('')}</ul>`
       : '';
     return `<div class="pdp-gallery">
@@ -49,6 +51,7 @@
   const render = (p, all) => {
     document.title = `${p.title} | My Best Friend's Closet — Tracy, CA`;
     pdp.removeAttribute('aria-busy');
+    const consigned = p.origin === 'consigned';
 
     // the store writes headings ("Care Instructions") inline with the bullets
     // real headings are Title Case ("Care Instructions"); bullets are not ("Machine wash cold")
@@ -64,27 +67,35 @@
 
     pdp.innerHTML = `
       <nav class="pdp-crumbs" aria-label="Breadcrumb">
-        <a href="shop.html">Shop</a><span aria-hidden="true">/</span><a href="shop.html#${encodeURIComponent(p.group)}">${esc(p.group)}</a>
+        <a href="shop.html">Shop</a><span aria-hidden="true">/</span><a href="shop.html?category=${encodeURIComponent(p.group)}">${esc(p.group)}</a>
       </nav>
       <div class="pdp-layout">
         ${gallery(p)}
         <div class="pdp-info">
           ${p.vendor ? `<p class="eyebrow">${esc(p.vendor)}</p>` : ''}
           <h1>${esc(p.title)}</h1>
+          <p class="pdp-origin">
+            <span class="tag ${consigned ? 'tag-consigned' : 'tag-new'}">${consigned ? 'Consigned' : 'Boutique'}</span>
+            <span>${consigned
+              ? 'A consigned piece. Check the description and photos for condition.'
+              : 'From our boutique selection. See the product details below.'}</span>
+          </p>
           <p class="pdp-price">${money(p.price)}${p.available ? '' : ' <span class="pdp-sold">Sold</span>'}</p>
           ${p.blurb ? `<p class="lede">${esc(p.blurb)}</p>` : ''}
-          ${sizeRow(p.sizes)}
+          <form id="add-form" class="purchase-form">
+            <label for="variant">Size / color</label>
+            <select id="variant" required><option value="">Choose an option</option>${p.variants.map(v=>`<option value="${esc(v.id)}" ${v.available?'':'disabled'}>${esc(v.name==='Default Title'?'One size':v.name)} — ${money(v.price)}${v.available?'':' — Sold out'}</option>`).join('')}</select>
+            <label for="quantity">Quantity</label><input id="quantity" type="number" inputmode="numeric" min="1" max="20" step="1" value="1" required>
           <div class="pdp-actions">
-            <a class="btn" href="${esc(p.url)}" target="_blank" rel="noopener">${p.available ? 'Buy it online' : 'Check the online store'}</a>
-            <a class="btn btn-ghost" href="tel:+12098336232">${p.available ? 'Call to hold it' : 'Ask what else came in'}</a>
+            <button class="btn" id="add-button" type="submit" ${p.available?'':'disabled'}>${p.available ? 'Add to bag' : 'Sold out'}</button>
+            <a class="btn btn-ghost" href="cart.html">View bag</a>
           </div>
-          <p class="pdp-fine">${p.available
-            ? 'Checkout runs on the MBFC online store and opens in a new tab. Prefer to try it on? We hold pieces for 24 hours — just call.'
-            : 'This one is spoken for online. Call the shop — pieces like it come through every week, and the floor moves faster than the website.'}</p>
+          <p id="purchase-status" role="status"></p></form>
+          <p class="pdp-fine">Choose your pieces here, then pay securely with Shopify. Availability, shipping, pickup and final totals are confirmed at checkout. <a href="policies.html#returns">Returns &amp; store credit</a></p>
           ${details}
           <dl class="pdp-meta">
-            <div><dt>Pickup</dt><dd>53 W 10th Street, usually ready in 24 hours</dd></div>
-            <div><dt>Category</dt><dd><a class="text-link" href="shop.html">${esc(p.group)}</a></dd></div>
+            <div><dt>Pickup</dt><dd>53 W 10th Street. Check the available options at checkout.</dd></div>
+            <div><dt>Category</dt><dd><a class="text-link" href="shop.html?category=${encodeURIComponent(p.group)}">${esc(p.group)}</a></dd></div>
           </dl>
         </div>
       </div>`;
@@ -96,23 +107,34 @@
       const w = Math.max(320, Math.min(hero.naturalWidth, 480));
       pdp.querySelector('.pdp-gallery').style.maxWidth = `${w}px`;
     };
-    hero.complete ? fitFrame() : hero.addEventListener('load', fitFrame, { once: true });
+    if(hero)hero.complete ? fitFrame() : hero.addEventListener('load', fitFrame, { once: true });
+    const variant=document.getElementById('variant');
+    if(p.variants.length===1&&p.variants[0].available)variant.value=p.variants[0].id;
+    variant.addEventListener('change',()=>{const v=p.variants.find(v=>v.id===variant.value);if(v)document.querySelector('.pdp-price').textContent=money(v.price);});
+    document.getElementById('add-form').addEventListener('submit',async e=>{
+      e.preventDefault();const status=document.getElementById('purchase-status'),button=document.getElementById('add-button');
+      const id=variant.value,quantity=Number(document.getElementById('quantity').value);if(!id||!Number.isInteger(quantity)||quantity<1||quantity>20)return;
+      button.disabled=true;status.textContent='Checking availability…';
+      try{const fresh=await currentProduct(p.handle);const v=fresh.variants.find(v=>v.id===id);if(!v?.available)throw new Error('That option is no longer available. Please choose another.');addToBag(fresh,v,quantity);document.querySelector('.pdp-price').textContent=money(v.price);status.textContent=`Added ${quantity} to your bag at ${money(v.price)} each.`;}
+      catch(e){status.textContent=e.message;}finally{button.disabled=false;}
+    });
 
     pdp.querySelectorAll('.pdp-thumb').forEach((btn) => {
       btn.addEventListener('click', () => {
         document.getElementById('pdp-hero').src = btn.dataset.src;
-        pdp.querySelectorAll('.pdp-thumb').forEach((b) => b.classList.remove('is-active'));
+        pdp.querySelectorAll('.pdp-thumb').forEach((b) => {b.classList.remove('is-active');b.setAttribute('aria-pressed','false');});
         btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed','true');
       });
     });
 
-    const siblings = all.filter((x) => x.group === p.group && x.handle !== p.handle).slice(0, 4);
+    const siblings = all.filter((x) => x.group === p.group && x.handle !== p.handle && x.available).slice(0, 4);
     if (siblings.length) {
       document.getElementById('more-title').textContent = `More ${p.group.toLowerCase()}`;
       document.getElementById('more-grid').innerHTML = siblings.map((s) => `
         <li>
           <a href="product.html?p=${encodeURIComponent(s.handle)}">
-            <div class="product-frame"><img src="${esc(s.images[0])}" alt="" loading="lazy" width="533" height="666"></div>
+            <div class="product-frame"><img src="${esc(s.images[0])}" alt="" loading="lazy" width="533" height="666"><span class="tag ${s.origin === 'consigned' ? 'tag-consigned' : 'tag-new'}">${s.origin === 'consigned' ? 'Consigned' : 'Boutique'}</span></div>
             <h3>${esc(s.title)}</h3><p class="price">${money(s.price)}</p>
           </a>
         </li>`).join('');
@@ -132,6 +154,6 @@
     return;
   }
   const p = all.find((x) => x.handle === handle);
-  if (p) render(p, all);
-  else notFound('This one found a home', 'It sold before you got here. The racks turn over every week — there is plenty more waiting.');
+  try {const fresh=await currentProduct(handle);render(fresh,all);}
+  catch(e){if(p&&e.message!=='This item is no longer available.'){render(p,all);document.getElementById('purchase-status').textContent='Showing saved details. We will recheck availability when you add to your bag.';}else notFound('This piece is unavailable', 'Browse the closet for current arrivals, or call the shop to ask about this piece.');}
 })();

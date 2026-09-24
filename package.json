@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "node scripts/stage-static-files.mjs && vinext dev",
     "build": "node scripts/stage-static-files.mjs && vinext build",
-    "refresh": "node scripts/refresh-products.mjs"
+    "refresh": "node scripts/sync-catalog.mjs"
   },
   "dependencies": {
     "next": "16.2.6",

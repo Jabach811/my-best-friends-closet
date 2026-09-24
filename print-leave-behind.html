@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MBFC — Leave-Behind</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+@page { size: letter; margin: 0.4in; }
+
+:root {
+  --canvas:#ffffff;
+  --surface-soft:#f7f6f3;
+  --hairline:#e9e8e4;
+  --accent:#35608c;
+  --info-bg:#e9f0f6;
+  --tint:#8c5b45;
+  --ink:#37352f;
+  --body:#5f5d57;
+  --mute:#787774;
+  --faint:#a8a69f;
+  --font:-apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --font-serif:'Newsreader',Georgia,'Times New Roman',serif;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+body {
+  font-family:var(--font);
+  font-size:9.5pt; line-height:1.45; color:var(--body);
+  background:var(--canvas);
+  width:7.7in; margin:0 auto; padding:0.15in 0;
+}
+
+/* ─── MASTHEAD ─────────────────────────────── */
+.masthead { display:flex; align-items:flex-end; justify-content:space-between; gap:20pt;
+  padding-bottom:9pt; border-bottom:1px solid var(--hairline); margin-bottom:11pt; }
+.eyebrow { font-size:7pt; font-weight:500; letter-spacing:0.09em; text-transform:uppercase;
+  color:var(--tint); margin-bottom:4pt; }
+.masthead h1 { font-family:var(--font-serif); font-size:21pt; font-weight:500;
+  color:var(--ink); letter-spacing:-0.02em; line-height:1.1; }
+.masthead .who { text-align:right; font-size:8pt; line-height:1.5; color:var(--mute); white-space:nowrap; }
+.masthead .who strong { display:block; color:var(--ink); font-weight:600; }
+
+/* ─── QR BAND ──────────────────────────────── */
+.see { display:flex; align-items:center; gap:15pt;
+  background:var(--surface-soft); border-radius:8px; padding:11pt 14pt; margin-bottom:13pt; }
+.see img { width:0.78in; height:0.78in; display:block; flex-shrink:0; }
+.see p { font-size:9.5pt; line-height:1.48; }
+.see .url { display:block; font-weight:600; color:var(--accent); margin-top:4pt; }
+
+/* ─── SECTIONS ─────────────────────────────── */
+h2 { font-family:var(--font-serif); font-size:12.5pt; font-weight:500;
+  color:var(--ink); letter-spacing:-0.01em; line-height:1.2; margin-bottom:5pt; }
+
+p + p { margin-top:6pt; }
+
+strong { font-weight:600; color:var(--ink); }
+.promise strong { color:#2e5375; }
+
+.duo { display:grid; grid-template-columns:1fr 1fr; gap:0 26pt; margin-bottom:13pt; }
+
+/* ─── TINTED WELLS ─────────────────────────── */
+.well { border-radius:8px; padding:12pt 14pt; margin-bottom:13pt; }
+.well.promise { background:var(--info-bg); }
+.well.promise h2 { color:#2e5375; }
+.well.dream { background:var(--surface-soft); margin-bottom:0; }
+
+.promise ul { list-style:none; margin-top:6pt; }
+.promise li { margin-bottom:4pt; padding-left:11pt; position:relative; }
+.promise li::before { content:""; position:absolute; left:0; top:0.55em;
+  width:5pt; height:1pt; background:#8fa9c2; }
+.promise li:last-child { margin-bottom:0; }
+
+.aside { font-family:var(--font-serif); font-style:italic; color:var(--mute); }
+
+.foot { margin-top:11pt; padding-top:7pt; border-top:1px solid var(--hairline);
+  display:flex; justify-content:space-between; font-size:8pt; color:var(--faint); }
+
+@media screen { body { padding:0.4in 0; } }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div>
+    <p class="eyebrow">For Liz &amp; Shawna · My Best Friend's Closet</p>
+    <h1>A new website for the shop, already built.</h1>
+  </div>
+  <div class="who">
+    <strong>Joel Abacherli</strong>
+    (510) 207-8175<br>
+    jabach811@gmail.com
+  </div>
+</div>
+
+<div class="see">
+  <img src="qr-site.svg" alt="QR code to the new site">
+  <p>
+    I'm Joel. I build websites for small shops, and I kept thinking yours could be doing
+    more for you. So it's done — the whole thing, <strong>finished and live right now</strong>,
+    not a sketch. Point your phone at the square tonight when the shop is quiet and poke
+    around. <strong>Nothing to sign, nothing to decide.</strong> I just wanted you to see it.
+    <span class="url">my-best-friends-closet.jabach0811.chatgpt.site</span>
+  </p>
+</div>
+
+<div class="duo">
+  <section>
+    <h2>Why I did it</h2>
+    <p>
+      Your current site takes <strong>about sixteen seconds to open on a phone</strong>, and
+      most people give up after three. When somebody in Tracy searches for a consignment shop,
+      you're <strong>the last name on the page — under Yelp</strong>. And you've got
+      <strong>eleven thousand people on Instagram</strong>, three live sales a week, and a
+      website that doesn't mention a word of it.
+    </p>
+    <p>
+      That gap is what got me. <strong>You two already did the hard part</strong> — a shop
+      people love. The website just hasn't been holding up its end.
+    </p>
+  </section>
+
+  <section>
+    <h2>What I'd take off your plate</h2>
+    <p>
+      If you like what you see, <strong>I'd handle all of it</strong>. New arrivals and
+      seasonal photos — <strong>you text me pictures, they show up</strong>, nothing for you
+      to learn. Your Instagram wired right into the site, so the live sales show themselves
+      off. Your Google listing kept current. The domain-and-hosting stuff nobody enjoys.
+    </p>
+    <p>
+      And <strong>once a month, a short email in regular words</strong>: how many people
+      found you, how, and what they did next. That's how you'll know it's working — and if
+      it isn't, you'll see that too.
+    </p>
+  </section>
+</div>
+
+<div class="well promise">
+  <h2>The part I most want you to hear</h2>
+  <p>I know how this looks — a stranger walks in holding a website. So here it is in writing:</p>
+  <ul>
+    <li>Your current site <strong>stays right where it is until you say go</strong>. If you never say go, you've lost nothing.</li>
+    <li>You see the new one <strong>finished and live before you pay a dollar</strong>.</li>
+    <li>The monthly help is <strong>month to month</strong>. Stop whenever — no contract, no fee, no hard feelings.</li>
+    <li><strong>Everything is yours.</strong> The site, the photos, the domain, all of it. Always.</li>
+    <li>And the price will fit a small shop, because <strong>I'm not interested in a number that hurts</strong>.</li>
+  </ul>
+</div>
+
+<div class="well dream">
+  <h2>Now the fun part: ask me for anything.</h2>
+  <p>
+    And I do mean anything. <strong>Not off a menu, not out of a package</strong> — there
+    isn't one. Different colors, different shapes, a section nobody else's website has.
+    Something that moves when you scroll. A page that shows up for one week in December and
+    then disappears. If you can describe it to me — even badly, even as <em>"I want it to
+    feel like walking in here on a Saturday morning"</em> — <strong>I can build it</strong>.
+  </p>
+  <p>
+    A few sparks, only so you have something to push against: a wall of whatever just hit
+    the floor, a countdown to Wednesday's live sale, drop-offs booked online, a page about
+    the two of you. Now please forget those. <strong>The ideas I actually want are the ones
+    I'd never come up with, because I don't run this shop — you two do.</strong>
+  </p>
+  <p>
+    So go ahead and get greedy with it. Nothing here is decided or priced, and no idea is
+    too big or too silly to say out loud. Tell me what you're picturing and
+    <strong>I'll build it so you can see it working before you commit to anything</strong>.
+    <span class="aside">The stranger the request, the more I want it.</span>
+  </p>
+</div>
+
+<div class="foot">
+  <span>My Best Friend's Closet · 53 W 10th Street, Tracy, CA</span>
+  <span>Joel Abacherli · (510) 207-8175 · jabach811@gmail.com</span>
+</div>
+
+</body>
+</html>

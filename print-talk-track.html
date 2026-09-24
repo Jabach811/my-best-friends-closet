@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MBFC — Talk Track (Joel only)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+@page { size: letter; margin: 0.4in; }
+
+:root {
+  --canvas:#ffffff;
+  --surface-soft:#f7f6f3;
+  --hairline:#e9e8e4;
+  --accent:#35608c;
+  --info-bg:#e9f0f6;
+  --tint:#8c5b45;
+  --ink:#37352f;
+  --body:#5f5d57;
+  --mute:#787774;
+  --faint:#a8a69f;
+  --font:-apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --font-serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --font-mono:'Cascadia Code',Consolas,Menlo,monospace;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+body {
+  font-family:var(--font);
+  font-size:8.8pt; line-height:1.28; color:var(--body);
+  background:var(--canvas);
+  width:7.7in; margin:0 auto; padding:0.15in 0;
+}
+
+strong { font-weight:600; color:var(--ink); }
+
+/* ─── MASTHEAD ─────────────────────────────── */
+.masthead { display:flex; align-items:flex-end; justify-content:space-between; gap:20pt;
+  padding-bottom:7pt; border-bottom:1px solid var(--hairline); margin-bottom:9pt; }
+.eyebrow { font-size:7pt; font-weight:500; letter-spacing:0.09em; text-transform:uppercase;
+  color:var(--tint); margin-bottom:3pt; }
+.masthead h1 { font-family:var(--font-serif); font-size:18pt; font-weight:500;
+  color:var(--ink); letter-spacing:-0.02em; line-height:1.1; }
+.masthead .who { text-align:right; font-size:7.5pt; letter-spacing:0.06em;
+  text-transform:uppercase; font-weight:500; color:var(--mute); white-space:nowrap; }
+
+/* ─── SECTIONS ─────────────────────────────── */
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:8pt 20pt; }
+.full { grid-column:1 / -1; }
+
+section > h2 { font-size:9.6pt; font-weight:600; color:var(--ink); letter-spacing:-0.01em;
+  padding-bottom:3pt; border-bottom:1px solid var(--hairline); margin-bottom:5pt; }
+
+ul { list-style:none; }
+li { margin-bottom:2.4pt; }
+li:last-child { margin-bottom:0; }
+li b { display:block; font-weight:600; color:var(--ink); line-height:1.34; }
+li .sub { display:block; font-size:7.8pt; line-height:1.22; color:var(--body); }
+
+/* timed run */
+.clock { display:grid; grid-template-columns:auto 1fr auto 1fr; gap:4pt 9pt; }
+.clock dt { font-family:var(--font-mono); font-size:8.5pt; font-weight:500;
+  color:var(--tint); padding-top:1pt; }
+.clock dd { margin-right:12pt; }
+.clock dd b { display:block; font-weight:600; color:var(--ink); line-height:1.34; }
+.clock dd span { display:block; font-size:7.8pt; line-height:1.22; color:var(--body); }
+.clock .say { font-family:var(--font-serif); font-size:8.6pt; line-height:1.26;
+  color:#2e5375; display:block; margin-top:1pt; }
+
+/* ─── WELLS ────────────────────────────────── */
+.well { border-radius:8px; padding:8pt 11pt; }
+.well > h2 { border-bottom:none; padding-bottom:0; margin-bottom:5pt; }
+.well.run { background:var(--info-bg); }
+.well.run > h2 { color:#2e5375; }
+.well.avoid { background:var(--surface-soft); }
+
+.chk-list li { padding-left:14pt; position:relative; }
+.chk-list li::before { content:""; position:absolute; left:0; top:1.5pt;
+  width:9pt; height:9pt; border:1px solid #b3b1aa; border-radius:2px; }
+
+.tail { margin-top:8pt; padding-top:5pt; border-top:1px solid var(--hairline);
+  font-family:var(--font-serif); font-style:italic; font-size:9.5pt; color:var(--mute);
+  text-align:center; }
+
+@media screen { body { padding:0.4in 0; } }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div>
+    <p class="eyebrow">Joel only · do not hand over</p>
+    <h1>Seven minutes, then out.</h1>
+  </div>
+  <div class="who">Late day, not at close<br>Get a day — not a decision</div>
+</div>
+
+<section class="well run full">
+  <h2>The seven minutes</h2>
+  <dl class="clock">
+    <dt>0:00</dt>
+    <dd><b>Names first, before anything else.</b>
+      <span class="say">"Hi — are you Liz? I'm Joel."</span>
+      <span>If there's a customer at the counter, browse the racks until they're free. Never pitch over a paying customer.</span></dd>
+
+    <dt>0:20</dt>
+    <dd><b>Tell them you're not selling. This is the line that relaxes them.</b>
+      <span class="say">"I live here in Tracy. I build websites for small shops. I'm not here to sell you anything — I'm dropping something off and getting out of your hair."</span></dd>
+
+    <dt>0:45</dt>
+    <dd><b>The reveal. One sentence, then the phone goes in their hands.</b>
+      <span class="say">"I kept thinking your website wasn't doing this place justice. So I rebuilt it. It's live right now."</span></dd>
+
+    <dt>1:15</dt>
+    <dd><b>Now say nothing. Count to thirty.</b>
+      <span>Hardest part of the visit. Don't narrate, don't point, don't explain. Whatever they say first tells you everything you need.</span></dd>
+
+    <dt>2:30</dt>
+    <dd><b>Scroll them to the Instagram strip. This is the peak — their own photos on their own new site.</b>
+      <span class="say">"That's your Instagram, pulling in by itself. Eleven thousand followers, three live sales a week — and your site right now doesn't mention a word of it."</span></dd>
+
+    <dt>3:30</dt>
+    <dd><b>Take the phone back. Say the no-risk line once and stop.</b>
+      <span class="say">"Nothing changes until you say so. Your site stays right where it is. You'd see this done and live before you paid me anything. And the price will fit a shop this size."</span></dd>
+
+    <dt>4:30</dt>
+    <dd><b>Hand over the sheet. Point at exactly two things.</b>
+      <span>The square — "scan that tonight, it'll pull up on your own phones." Then the bottom block — <em>"that part's the fun one. Anything you two dream up, I'll build it."</em></span></dd>
+
+    <dt>5:30</dt>
+    <dd><b>Ask for a day, not a decision. Then shut up and let them answer.</b>
+      <span class="say">"I'm not asking you to decide anything tonight. Can I call you Friday?"</span></dd>
+
+    <dt>6:30</dt>
+    <dd><b>Leave. Even if it's going great — especially if it's going great.</b>
+      <span>"I gotta get this guy home before he turns." Smile, out the door. No lingering goodbye.</span></dd>
+  </dl>
+</section>
+
+<div class="grid" style="margin-top:8pt;">
+
+  <section class="well avoid">
+    <h2>Do not</h2>
+    <ul>
+      <li><b>Don't give a tour.</b><span class="sub">You're not walking them through the site. They'll explore it tonight — that's the whole plan.</span></li>
+      <li><b>Don't lead with what's broken.</b><span class="sub">It's on the sheet in writing. Let the paper be the bad guy while you stay the nice one.</span></li>
+      <li><b>Don't say a number.</b><span class="sub">Not even a range. Not even if they push once.</span></li>
+      <li><b>Don't work the kid.</b><span class="sub">He helps because he's just there — a neighbor with his son, not a salesman. The second you're using him, they'll feel it.</span></li>
+      <li><b>Don't stay past seven.</b><span class="sub">Leave while they still want more. That hunger is what carries them all night.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>If they ask</h2>
+    <ul>
+      <li><b>"How much is this?"</b><span class="sub">"Honestly don't know yet — depends what you want me handling. Tell me that and I'll put it in writing this week."</span></li>
+      <li><b>"We need to think about it."</b><span class="sub">"That's exactly what I want you to do. Can I call Friday?"</span></li>
+      <li><b>"We get all our business from Instagram."</b><span class="sub">"That's the thing — Instagram's doing all the work and the website drops the handoff."</span></li>
+      <li><b>"Who are you, again?"</b><span class="sub">"I live here. My cell's on that sheet — call me anytime. And everything I build ends up belonging to you."</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Only if they ask what's wrong with theirs</h2>
+    <ul>
+      <li><b>Sixteen seconds to open on a phone.</b><span class="sub">Most people give it three.</span></li>
+      <li><b>Last on page one for "consignment shop Tracy."</b><span class="sub">Under Yelp — for their own name.</span></li>
+      <li><b>The consignment page never asks for the sale.</b><span class="sub">No hours, no address, no way to book a drop-off.</span></li>
+    </ul>
+    <p style="margin-top:5pt; font-size:8pt; line-height:1.26;">
+      Say one. Not all three. Then get off it — <strong>you're not there to make them feel bad about the shop they built.</strong>
+    </p>
+  </section>
+
+  <section>
+    <h2>Before you walk in</h2>
+    <ul class="chk-list">
+      <li><b>Scan the QR on the printed sheet yourself</b><span class="sub">Before you print the rest of them.</span></li>
+      <li><b>New site already loaded and sitting on the screen</b><span class="sub">Phone unlocked, brightness up, notifications off. No typing in front of them.</span></li>
+      <li><b>Both sheets out and in your hand</b><span class="sub">Not in a bag you have to dig through with a stroller.</span></li>
+      <li><b>Go late, but not at close</b><span class="sub">Thirty to forty-five minutes before they lock up. Not five.</span></li>
+      <li><b>Know your number anyway</b><span class="sub">Not to say — so you don't freeze if they ask point blank.</span></li>
+    </ul>
+  </section>
+
+</div>
+
+<p class="tail">Swoop in, hand them something exciting, leave before the excitement peaks.</p>
+
+</body>
+</html>

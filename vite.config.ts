@@ -11,6 +11,7 @@ export default defineConfig({
       viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
       config: {
         main: "./worker/index.ts",
+        assets: { binding: "ASSETS", run_worker_first: true },
         compatibility_flags: ["nodejs_compat"]
       }
     })

@@ -61,10 +61,11 @@
     <nav aria-label="Main">
       <a href="shop.html">Shop</a>
       <a href="consign.html">Consign</a>
-      <a href="jewelry.html" aria-current="page">Jewelry &amp; Hats</a>
-      <a href="index.html#visit">Visit</a>
+      <a href="brands.html">Brands</a>
+      <a href="index.html#experiences">Experiences</a>
+      <a href="contact.html">Visit</a>
     </nav>
-    <a class="btn btn-small" href="consign.html">Start Consigning</a>
+    <a class="bag-link" href="/cart.html">Bag <span data-bag-count>0</span></a><a class="btn btn-small" href="consign.html">Start Consigning</a>
   </header>
 
   <main id="main">
@@ -206,12 +207,12 @@
       </div>
       <div class="footer-signup">
         <h4>First dibs on new arrivals</h4>
-        <p class="footer-note">Text <a href="sms:+12098336232">(209) 833-6232</a> with the word <em>arrivals</em> and we'll add you to the list. New pieces hit the floor every week.</p>
+        <form action="https://mbfctracy.com/contact#ContactFooter" method="post"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="contact[tags]" value="newsletter"><label class="visually-hidden" for="newsletter-email">Email address</label><input id="newsletter-email" type="email" name="contact[email]" autocomplete="email" placeholder="Email address" required><button class="btn" type="submit">Join</button></form><p class="footer-note">Confirm your subscription with the store on Shopify. <a href="policies.html#privacy">Privacy</a></p>
       </div>
     </div>
-    <p class="footer-legal">© 2026 My Best Friend's Closet · Tracy, California</p>
+    <p class="footer-legal">© 2026 My Best Friend's Closet · Tracy, California · <a href="/policies.html">Store policies</a> · <a href="/contact.html">Contact</a> · <a href="https://mbfctracy.com/account">Customer account ↗</a></p>
   </footer>
 
-  <script src="site.js"></script>
+  <script src="site.js"></script><script type="module" src="bag-count.js"></script>
 </body>
 </html>

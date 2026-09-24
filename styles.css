@@ -294,11 +294,31 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 4vw, 3rem); }
 }
 .product-grid a { text-decoration: none; }
 .product-frame {
+  position: relative;
   overflow: hidden;
   border-radius: 3px;
   background: var(--cream);
   margin-bottom: 0.9rem;
 }
+
+/* new or consigned, said plainly on every piece */
+.tag {
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 0.28rem 0.55rem;
+  white-space: nowrap;
+}
+.product-frame .tag {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+}
+.tag-consigned { background: var(--teal-deep); color: #fff; }
+.tag-new { background: rgba(250, 246, 239, 0.94); color: var(--ink-soft); }
 .product-frame img {
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -425,6 +445,15 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 4vw, 3rem); }
   border-color: var(--teal-deep);
   color: #fff;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 2px 6px rgba(35, 96, 111, 0.3);
+}
+.pill-origin { border-color: #cbb9a0; }
+.pdp-origin {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0.75rem 0 0.25rem;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
 }
 .shop-grid { row-gap: 2.5rem; }
 .shop-grid h3 {
@@ -598,6 +627,19 @@ section.prose, section.prose-split { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
   break-inside: avoid;
 }
 
+.brand-list {
+  list-style: none;
+  columns: 4;
+  column-gap: 2.5rem;
+  max-width: 62rem;
+}
+.brand-list li {
+  break-inside: avoid;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.9875rem;
+}
 .rates { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.25rem, 2.5vw, 2.5rem); }
 .rates h3 { font-size: 1.0625rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line); margin-bottom: 0.4rem; }
 .rates dl div { display: flex; justify-content: space-between; padding: 0.45rem 0; border-bottom: 1px dotted var(--line); font-size: 0.9875rem; }
@@ -761,6 +803,7 @@ section.prose, section.prose-split { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
 }
 @media (max-width: 520px) {
   .plain-list { columns: 1; }
+  .brand-list { columns: 2; }
   .product-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .topbar { font-size: 0.75rem; letter-spacing: 0.04em; }
@@ -796,10 +839,10 @@ section.prose, section.prose-split { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
 }
 
 /* the store's own photos top out around 460px wide — don't upscale them */
-.pdp-gallery { max-width: 30rem; }
+.pdp-gallery { max-width: 30rem; min-width: 0; width: 100%; }
 .pdp-stage { background: var(--cream); overflow: hidden; }
 .pdp-stage img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-.pdp-thumbs { list-style: none; display: flex; gap: 0.6rem; margin-top: 0.6rem; }
+.pdp-thumbs { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem; }
 .pdp-thumb {
   width: 4.5rem;
   padding: 0;
@@ -901,4 +944,53 @@ section.prose, section.prose-split { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
   .pdp-layout { grid-template-columns: 1fr; gap: 2rem; }
   .pdp-info { position: static; }
   .pdp-more .product-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Shopping and parity improvements */
+.bag-link { white-space:nowrap; font-weight:600; padding:.7rem .5rem; }
+.bag-link span { background:var(--cream); padding:.1rem .4rem; border-radius:1rem; }
+.collection-tools { display:flex; flex-wrap:wrap; align-items:center; gap:1rem; margin:1rem 0; }
+.collection-tools select,.purchase-form select,.purchase-form input,.bag-row input { font:inherit; padding:.7rem; border:1px solid var(--ink-soft); border-radius:3px; background:white; color:var(--ink); max-width:100%; }
+.collection-tools label { display:flex; align-items:center; gap:.5rem; }
+.collection-tools input[type=checkbox] { width:1.25rem; height:1.25rem; }
+.catalog-status { font-size:.875rem; color:var(--ink-soft); margin:1rem 0; }
+.purchase-form { display:grid; gap:.65rem; margin:1.25rem 0; }
+.purchase-form input { width:6rem; }
+.purchase-form .pdp-actions { margin:.5rem 0; }
+.btn:disabled { opacity:.55; cursor:not-allowed; }
+.image-unavailable { min-height:8rem; display:grid; place-content:center; padding:1rem; color:var(--ink-soft); background:var(--cream); }
+.tag-sold { background:var(--ink); color:white; }
+.product-frame img,.pdp-stage img { object-fit:contain; }
+.policy-copy { max-width:58rem; margin:auto; }
+.policy-copy h2 { margin:1.8rem 0 1rem; }
+.policy-copy p { margin:1rem 0; }
+.policy-copy li { margin:.75rem 0; }
+.bag-page { max-width:70rem; margin:auto; }
+.bag-items { list-style:none; }
+.bag-row { display:grid; grid-template-columns:100px minmax(0,1fr) auto; gap:1.5rem; padding:1.5rem 0; border-bottom:1px solid var(--line); }
+.bag-row img { width:100px; height:125px; object-fit:contain; background:var(--cream); }
+.bag-row input { width:5rem; margin:.7rem; }
+.bag-row p { color:var(--ink-soft); }
+.bag-summary { max-width:38rem; margin:2rem 0 0 auto; }
+.bag-summary p { margin:1rem 0; }
+.footer-signup form { flex-wrap:wrap; }
+.footer-signup input[type=email] { width:100%; flex-basis:65%; font-size:1rem; }
+.shop-search,.shop-sort { font-size:1rem; }
+.load-more { display:block; margin:2rem auto; }
+@media(max-width:700px){
+ .site-header .btn-small { display:none; }
+ .site-header nav { flex-wrap:wrap; justify-content:center; gap:0 .65rem; }
+ .site-header nav a { font-size:.875rem; min-height:44px; display:flex; align-items:center; }
+ .hero-media { order:0; height:16rem; min-height:0; }
+ .hero-copy { padding:2rem 1.25rem; }
+ .hero h1 { font-size:2.4rem; }
+ .hero .lede { font-size:1rem; margin-bottom:1.25rem; }
+ .pills { scrollbar-width:thin; }
+ .pills::-webkit-scrollbar { display:block; height:5px; }
+ .collection-tools { align-items:stretch; }
+ .collection-tools select { width:100%; }
+ .bag-row { grid-template-columns:70px minmax(0,1fr); gap:1rem; }
+ .bag-row img { width:70px; height:90px; }
+ .bag-row>strong { grid-column:2; }
+ .pdp-crumbs { flex-wrap:wrap; }
 }
