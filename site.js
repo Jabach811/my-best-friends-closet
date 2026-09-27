@@ -6,7 +6,6 @@ addEventListener("resize", setHeaderH);
 
 /* Open / closed line under the address. Hours are Pacific, where the shop is. */
 const HOURS = {
-  0: [10, 14],
   2: [10, 18],
   3: [10, 18],
   4: [10, 17.5],

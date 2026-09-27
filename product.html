@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Loading… | My Best Friend's Closet — Tracy, CA</title>
+  <title>Shop | My Best Friend's Closet — Tracy, CA</title>
   <meta name="description" content="A piece from the racks at My Best Friend's Closet, downtown Tracy.">
   <link rel="icon" href="assets/current-site/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/current-site/favicon.png">
   <meta name="theme-color" content="#23606f">
   <meta name="robots" content="noindex">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://my-best-friends-closet.jabach0811.chatgpt.site/shop.html">
+  <meta property="og:site_name" content="My Best Friend's Closet">
+  <meta property="og:title" content="Shop the Closet | My Best Friend's Closet — Tracy, CA">
+  <meta property="og:description" content="Every piece on the rack right now — dresses, tops, jewelry, shoes and more.">
+  <meta property="og:image" content="https://my-best-friends-closet.jabach0811.chatgpt.site/assets/current-site/social-preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.shopify.com">
-  <link rel="preconnect" href="https://mbfctracy.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@300..700&family=Inter+Tight:wght@200..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&amp;family=Inter+Tight:wght@200..600&amp;display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&amp;family=Inter+Tight:wght@200..600&amp;display=swap"></noscript>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,14 +27,11 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="topbar">
-    <p>New arrivals every week &nbsp;·&nbsp; 53 W 10th St, Downtown Tracy &nbsp;·&nbsp; <a href="tel:+12098336232">(209) 833-6232</a></p>
+    <p>Open Tue–Sat <span class="topbar-loc">&nbsp;·&nbsp; 53 W 10th St, Downtown Tracy</span> &nbsp;·&nbsp; <a href="tel:+12098336232">(209) 833-6232</a></p>
   </div>
 
   <header class="site-header">
-    <a class="wordmark" href="index.html">
-      <span class="wordmark-script">My Best Friend's</span>
-      <span class="wordmark-caps">Closet</span>
-    </a>
+    <a class="logo" href="index.html"><img src="assets/current-site/logo-lockup.png" alt="My Best Friend's Closet" width="195" height="52"></a>
     <nav aria-label="Main">
       <a href="shop.html" aria-current="page">Shop</a>
       <a href="consign.html">Consign</a>
@@ -36,7 +39,7 @@
       <a href="index.html#experiences">Experiences</a>
       <a href="contact.html">Visit</a>
     </nav>
-    <a class="bag-link" href="/cart.html">Bag <span data-bag-count>0</span></a><a class="btn btn-small" href="consign.html">Start Consigning</a>
+    <a class="bag-link" href="/cart.html">Bag <span data-bag-count>0</span></a><a class="btn btn-small" href="consign.html">Start consigning</a>
   </header>
 
   <main id="main">
@@ -46,10 +49,7 @@
 
     <section class="pdp-more" id="more" hidden>
       <div class="section-head">
-        <div>
-          <p class="eyebrow">Keep looking</p>
-          <h2 id="more-title">More from the rack</h2>
-        </div>
+        <h2>More like this</h2>
         <a class="text-link" href="shop.html">See everything</a>
       </div>
       <ul class="product-grid" id="more-grid"></ul>
@@ -61,15 +61,15 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div>
-        <p class="wordmark-script footer-mark">My Best Friend's Closet</p>
+        <img class="footer-mark" src="assets/current-site/logo-lockup-light.png" alt="My Best Friend's Closet" width="195" height="52" loading="lazy">
         <p class="footer-tag">Designer labels on consignment.<br>Downtown Tracy since 2012.</p>
       </div>
       <div>
-        <h4>Find us</h4>
+        <h2>Find us</h2>
         <p>53 W 10th Street<br>Tracy, CA 95376<br><a href="tel:+12098336232">(209) 833-6232</a></p>
       </div>
       <div>
-        <h4>Follow along</h4>
+        <h2>Follow along</h2>
         <p>
           <a href="https://www.instagram.com/mbfctracy/">Instagram</a><br>
           <a href="https://www.facebook.com/mbfctracy/">Facebook</a><br>
@@ -77,15 +77,14 @@
         </p>
       </div>
       <div class="footer-signup">
-        <h4>First dibs on new arrivals</h4>
-        <form action="https://mbfctracy.com/contact#ContactFooter" method="post"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="contact[tags]" value="newsletter"><label class="visually-hidden" for="newsletter-email">Email address</label><input id="newsletter-email" type="email" name="contact[email]" autocomplete="email" placeholder="Email address" required><button class="btn" type="submit">Join</button></form><p class="footer-note">Confirm your subscription with the store on Shopify. <a href="policies.html#privacy">Privacy</a></p>
+        <h2>First dibs on new arrivals</h2>
+        <form action="https://mbfctracy.com/contact#ContactFooter" method="post" target="_blank" rel="noopener"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="contact[tags]" value="newsletter"><label class="visually-hidden" for="newsletter-email">Email address</label><input id="newsletter-email" type="email" name="contact[email]" autocomplete="email" placeholder="Email address" required><button class="btn" type="submit">Join</button></form><p class="footer-note">Check your inbox to confirm. <a href="policies.html#privacy">Privacy</a></p>
       </div>
     </div>
-    <p class="footer-legal">© 2026 My Best Friend's Closet · Tracy, California · <a href="/policies.html">Store policies</a> · <a href="/contact.html">Contact</a> · <a href="https://mbfctracy.com/account">Customer account ↗</a></p>
+    <p class="footer-legal">© 2026 My Best Friend's Closet · Tracy, California · <a href="/policies.html">Store policies</a> · <a href="/contact.html">Contact</a> · <a href="https://my-best-friends-closet-tracy.myshopify.com/account">Customer account ↗</a></p>
   </footer>
 
   <script src="site.js"></script><script type="module" src="bag-count.js"></script>
-  <script src="products-data.js"></script>
   <script type="module" src="product.js"></script>
 </body>
 </html>

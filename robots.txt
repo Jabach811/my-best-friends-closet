@@ -3,5 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /cart.html
 Disallow: /product-template.html
-Disallow: /pitch.html
 Sitemap: https://my-best-friends-closet.jabach0811.chatgpt.site/sitemap.xml

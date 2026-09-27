@@ -1,11 +1,11 @@
-import {esc,money,card} from './catalog-core.js';
-export {esc,money,card};
+import {esc,money,card,sized,STORE} from './catalog-core.js';
+export {esc,money,card,sized};
 const KEY='mbfc-bag-v1';
 let memory=[];
 export function bag(){try{const a=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(a)?a.filter(x=>x&&/^\d+$/.test(x.id)&&/^[a-z0-9-]+$/.test(x.handle)&&Number.isInteger(x.quantity)&&x.quantity>0&&x.quantity<=20&&Number.isFinite(x.price)&&x.price>=0&&typeof x.title==='string'&&typeof x.variant==='string').slice(0,50):[];}catch{return memory;}}
 export function saveBag(items){memory=items;try{localStorage.setItem(KEY,JSON.stringify(items));}catch{}if(typeof window!=='undefined')window.dispatchEvent(new Event('bagchange'));}
 export function addToBag(p,v,quantity){const items=bag();const found=items.find(x=>x.id===v.id);if((found?.quantity||0)+quantity>20)throw new Error('You can add up to 20 of one option. Review your bag to change the quantity.');if(!found&&items.length>=50)throw new Error('Your bag is full. Please check out or remove an item.');if(found)found.quantity+=quantity;else items.push({id:v.id,handle:p.handle,title:p.title,variant:v.name==='Default Title'?'One size':v.name,price:v.price,image:p.images[0]||'',quantity});saveBag(items);}
-export async function currentProduct(handle){const r=await fetch(`/api/product?handle=${encodeURIComponent(handle)}`,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error(r.status===404?'This item is no longer available.':'We could not check the store. Please try again.');return r.json();}
+export async function currentProduct(handle){const r=await fetch(`/api/product?handle=${encodeURIComponent(handle)}`,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error(r.status===404?'This item is no longer available.':'We couldn\'t check stock just now. Please try again.');return r.json();}
 export async function currentCatalog(){const r=await fetch('/api/catalog',{signal:AbortSignal.timeout(30000)});if(!r.ok)throw new Error('Catalog refresh unavailable');return r.json();}
-export function checkoutUrl(items){if(!items.length||items.some(x=>!/^\d+$/.test(x.id)||!Number.isInteger(x.quantity)||x.quantity<1||x.quantity>20))throw new Error('Please review your bag.');return 'https://mbfctracy.com/cart/'+items.map(x=>`${x.id}:${x.quantity}`).join(',');}
+export function checkoutUrl(items){if(!items.length||items.some(x=>!/^\d+$/.test(x.id)||!Number.isInteger(x.quantity)||x.quantity<1||x.quantity>20))throw new Error('Please review your bag.');return `${STORE}/cart/`+items.map(x=>`${x.id}:${x.quantity}`).join(',');}
 if(typeof document!=='undefined')document.addEventListener('error',e=>{if(e.target instanceof HTMLImageElement){const note=document.createElement('span');note.className='image-unavailable';note.textContent='Photo unavailable';e.target.replaceWith(note);}},true);
