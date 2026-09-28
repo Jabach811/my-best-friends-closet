@@ -1,8 +1,3 @@
-node_modules/
-dist/
-public/
-.wrangler/
-
 node_modules
 .next
 .wrangler
@@ -57,12 +52,3 @@ package.json
 package-lock.json
 tsconfig.json
 Prior Vendor Guide.html
-
-.vercel
-.env*
-
-.vercel
-.env*
-
-.vercel
-.env*
